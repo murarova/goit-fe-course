@@ -15,19 +15,21 @@ html {
     margin: 0 auto;
     width: 901px;
     min-height: 100%;
-  }
+ }
 
 .main-menu {
-    margin: 77px auto 0;
-    width: 572px;
+    margin: 0 auto;
+    padding-top: 77px;
+    width: 901px;
     list-style: none;
-    padding:0;
+    margin-bottom: 104px;
+    padding-inline-start: 0px; /*обнуление браузерного стиля*/
  }
 
 .preview {
     display: inline-block;
     width: 420px;
-    margin-top: 140px;
+    margin-bottom: 140px;
 }
 .preview:nth-child(odd) {
     margin-right: 53px;
@@ -35,21 +37,25 @@ html {
 
 .main-menu > li {
     display: inline-block;
-    padding-right: 85px;
-}
-.main-menu > li:last-child {
-    padding-right: 0;
+    width: calc(100%/4 - 4px*4);
+    text-align: center;
 }
 
-a {
+.main-menu a {
+    display: inline-block;
     text-decoration: none;
     color: #626262;
+    text-transform: uppercase;
+    padding:10px;
+
+
   }
 a:hover {
     color: #03a9f4;
 }
 .sign {
     font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
 }
 h2 {
     font-size: 30px;
@@ -64,7 +70,7 @@ button {
     padding: 24px 35px 24px 35px;
     color: #626262; 
     font-size: 20px;
-    margin: 58px auto;
+    margin: 0 auto;
     background: white;
     border: 2px solid #626262;
 }
