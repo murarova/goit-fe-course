@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    width: 1110px;
+    padding-top: 38px;
+    margin: 0 auto;
+}
+
+header {
+    padding-bottom: 116px;
+}
+
+.catalog {
+    margin-bottom: 65px;
+}
+
+.logo,
+.main-menu,
+.item-name,
+h1,
+h2 {
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none; 
+    color: black;   
+}
+
+.logo {
+    float: left;
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+}
+.logo::first-letter {
+    color: rgb(26, 188, 156);
+}
+
+.main-menu .menu li {
+    float: left;
+    padding-right: 35px;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+}
+  
+
+.main-menu .menu li:last-child {
+    padding-right: 0;
+}
+
+.main-menu {
+    float: right;
+}
+
+.title-catalog,
+.news-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    color: rgb(81, 81, 81);
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+.title-catalog::after {
+    content: '';
+    display: block;
+    border-bottom: 8px solid rgb(26, 188, 156);
+    width: 164px;
+    margin: 25px auto 93px;
+}
+
+.news-title::after {
+    content: '';
+    display: block;
+    border-bottom: 8px solid rgb(26, 188, 156);
+    width: 164px;
+    margin: 25px auto 80px;
+}
+
+.item {
+    width: 255px;
+    height: 323px;
+    float: left;
+    margin: 0 30px 30px 0;
+}
+
+.item img {
+    width: 255px;
+    height: 283px;
+}
+
+.item:nth-of-type(4n) {
+    margin-right: 0;
+}
+
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.item-name {
+    float: left;
+    width: 200px;
+    height: 40px;
+    background: #323232;
+    line-height: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: #ffffff;
+    padding-left: 13px;
+    letter-spacing: -0.02em;
+}
+
+.price {
+    float: right;
+    width: 55px;
+    height: 40px;
+    background: #8c8c8c;
+    text-align: center;
+    line-height: 40px; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: #ffffff; 
+}
+
+.item:hover .price {
+    background: rgba(26, 188, 156, 0.5);
+}
+.item:hover .item-name {
+    background:rgb(26, 188, 156);
+}
+.menu a:hover {
+    color: rgb(26, 188, 156);
+}
+
+.news img {
+    width: 350px;
+    margin-bottom: 6px;
+}
+
+.news {
+    float: left;
+    width: 350px;
+    height: 500px;
+    margin-right: 30px;
+}
+.news:last-child {
+    margin-right: 0;
+}
+
+.headline-news::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid rgb(26, 188, 156);
+    width: 138px;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+.headline-news {
+    font-size: 18px;
+    font-family: "Open Sans", serif;
+    font-weight: 300;
+    color: rgb(85, 82, 82);
+    letter-spacing: -0.02em;
+    line-height: 26px;
+}
+
+.text-news {
+    font-size: 14px;
+    font-family: "Open Sans", serif;
+    color: rgb(85, 82, 82);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+    line-height: 26px;
+}
+
+.button {
+    width: 160px;
+    height: 50px;
+    background: rgb(26, 188, 156);
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: "Open Sans", serif;
+    font-weight: 300px;
+}
