@@ -221,6 +221,11 @@ a {
     background: #46bfa9;
 }
 
+.item-inner-pic:last-child:hover {
+    background: #323232;
+}
+
+
 .item-inner .item-inner-pic:nth-child(3) {
     margin-right: -4px;
 }
