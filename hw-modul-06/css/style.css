@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    width: 1110px;
+    height: 90px;
+    margin: 0 auto;
+    position: relative;
+}
+.main {
+    background: #e9f0fd;
+    width: 1600px;
+    margin: 0 auto;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+
+.logo {
+    position: absolute;
+    left:0;
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: rgb(26, 188, 156)
+}
+
+.main-menu .menu li {
+    display: inline-block;
+    padding-right: 35px;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    margin-left: -4px;
+
+}
+
+.main-menu .menu li:last-child {
+    padding-right: 0;
+}
+
+.main-menu {
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform: translateY(-50%);
+    
+}
+
+.services {
+
+    width: 1600px;
+    height: 600px;
+    margin: 0 auto 95px;
+}
+
+.team {
+    width: 100%;
+    height: 500px;
+}
+
+.team-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    color: rgb(81, 81, 81);
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+
+.team-member {
+    width: 255px;
+    height: 323px;
+    float: left;
+    margin: 0 30px 30px 0;
+}
+
+
+.footer {
+    width: 1600px;
+    height: 90px;
+    background: #323232;
+    text-align: center;
+    line-height: 90px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: -0.02em;
+    color: white;
+    margin: 0 auto;
+}
+
+.footer .copyright .site {
+    color: #46bfa9;
+}
