@@ -121,8 +121,7 @@ a {
     top:225px;
     width: 105px;
     height: 105px;
-    background-image: url(../img/Rectangle-5.jpg);
-    background-repeat: no-repeat;
+    background-color: hsla(168, 75%, 42%, 1);
     z-index: 1;
 }
 
@@ -137,7 +136,7 @@ a {
 
 .arrow-left:hover,
 .arrow-right:hover {
-    opacity: 0.5;
+    background-color: hsla(168, 75%, 42%, .5);
 }
 
 .arrow-right {
@@ -148,8 +147,7 @@ a {
     text-align: end;
     width: 105px;
     height: 105px;
-    background-image: url(../img/Rectangle-5.jpg);
-    background-repeat: no-repeat;
+    background-color: hsla(168, 75%, 42%, 1);
     z-index: 1;
 }
 
