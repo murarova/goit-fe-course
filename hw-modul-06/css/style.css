@@ -14,19 +14,15 @@ a {
 
 .wrapper {
     height: 100%;
-    width: 100%;
+    width: 1200px;
+    margin: 0 auto;
 }
 
 header {
-    width: 1110px;
+    width: 100%;
     height: 90px;
     margin: 0 auto;
     position: relative;
-}
-.main {
-    background: #e9f0fd;
-    width: 1600px;
-    margin: 0 auto;
 }
 
 .uppercase {
@@ -41,42 +37,84 @@ header {
     font-family: "Roboto", sans-serif;
     top: 50%;
     transform: translate(0, -50%);
-    color: rgb(26, 188, 156)
 }
 
-.main-menu .menu li {
-    display: inline-block;
-    padding-right: 35px;
-    font-size: 14px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: bold;
-    margin-left: -4px;
-
+.logo a {
+    color: rgb(26, 188, 156);
 }
 
-.main-menu .menu li:last-child {
-    padding-right: 0;
-}
-
-.main-menu {
+.main-menu .menu {
     position: absolute;
     right: 0;
-    top:50%;
-    transform: translateY(-50%);
-    
+    display: flex;
+    height: 100%;
+    align-content: center;
 }
+
+.main-menu .menu a {
+    padding: 20px;
+}
+
+.main-menu .menu li::after {
+    content: '';
+    display: block;
+    border-bottom: 5px solid red;
+    width: 80px;
+    margin: 5px auto;
+    /* opacity: 0; */
+}
+
 
 .services {
-
-    width: 1600px;
-    height: 600px;
-    margin: 0 auto 95px;
-}
-
-.team {
     width: 100%;
-    height: 500px;
+    height: 600px;
+    margin: 50px auto 95px;
 }
+
+.services-section-name {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.services-section-name::after {
+    content: '';
+    display: block;
+    border-bottom: 5px solid red;
+    width: 100px;
+    margin: 20px auto;
+}
+
+.list-services {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-services {
+    width: 400px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.link-services {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.icon-services {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+ .services-description {
+     position: absolute;
+     top: 10px;
+     left: 100px;
+     width: 300px;
+ }
+
 
 .team-name {
     font-family: 'Roboto', sans-serif;
@@ -85,19 +123,50 @@ header {
     color: rgb(81, 81, 81);
     text-align: center;
     letter-spacing: -0.02em;
+    margin-bottom: 50px;
 }
 
+.team-name::after {
+    content: '';
+    display: block;
+    border-bottom: 5px solid red;
+    width: 100px;
+    margin: 20px auto;
+}
+
+.team .description {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.team-member-list {
+    display: flex;
+}
 
 .team-member {
-    width: 255px;
-    height: 323px;
-    float: left;
-    margin: 0 30px 30px 0;
+    width: 380px;
+    margin: 30px 30px 30px 0;
+}
+
+.team-member:last-child {
+    margin-right: 0;
+}
+
+.team-member-foto {
+    margin-bottom: 30px;
+}
+
+.team-member-name {
+    text-align: center;
+}
+
+.team-member-position {
+    text-align: center;
 }
 
 
 .footer {
-    width: 1600px;
+    width: 100%;
     height: 90px;
     background: #323232;
     text-align: center;
