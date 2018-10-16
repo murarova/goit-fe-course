@@ -21,7 +21,7 @@ a {
 header {
   width: 100%;
   height: 90px;
-  margin: 0 auto;
+  margin: 0 auto 90px;
   position: relative;
 }
 
@@ -46,29 +46,27 @@ header {
 .main-menu .menu {
   position: absolute;
   right: 0;
-  display: flex;
   height: 100%;
+  width: 500px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .main-menu .menu li {
   position: relative;
-  margin-right: 40px;
-}
-
-.main-menu .menu li:last-child {
-  margin-right: 0;
 }
 
 .main-menu .menu a {
   font-family: "Montserrat", sans-serif;
+  font-weight: bold;
   font-size: 14px;
   color: #95e1d3;
-  padding: 10px;
+  padding: 15px;
   transition: color 0.5s;
 }
 
-.main-menu .menu a:hover::after {
+.main-menu .menu a::after {
   content: "";
   position: absolute;
   top: 30px;
@@ -90,7 +88,8 @@ header {
 
 .services {
   width: 100%;
-  margin: 50px auto 0px;
+  height: 510px;
+  margin: 0 auto;
 }
 
 .services-section-name {
@@ -110,12 +109,13 @@ header {
   display: block;
   border-bottom: 3px solid #f38181;
   width: 60px;
-  margin: 40px auto 65px;
+  margin: 40px auto 40px;
 }
 
 .list-services {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 25px;
 }
 
 .item-services {
@@ -145,7 +145,7 @@ header {
 .name-services {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .description {
   font-family: "Roboto", sans-serif;
@@ -154,9 +154,15 @@ header {
   color: #999999;
 }
 
-.team .description {
+.team-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999999;
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
-  padding-bottom: 65px;
+  padding-bottom: 60px;
 }
 
 .team-member-list {
@@ -166,7 +172,7 @@ header {
 .team-member {
   width: 380px;
   height: 550px;
-  margin: 30px 30px 30px 0;
+  margin: 30px 30px 75px 0;
   position: relative;
 }
 
@@ -174,28 +180,11 @@ header {
   margin-right: 0;
 }
 
-
 .team-member-cover {
   margin-bottom: 30px;
   position: relative;
   width: 380px;
   height: 470px;
-}
-
-.team-member-name {
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-  padding-bottom: 15px;
-}
-
-.team-member-position {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-style: italic;
-  font-size: 15px;
-  line-height: 24px;
-  color: #999999;
 }
 
 .team-member-foto {
@@ -217,7 +206,11 @@ header {
 
 .team-member-foto::after {
   content: "";
-  background-image: linear-gradient(to top, rgba(252,227, 138, 0.9), rgba(243, 129, 129, 0.9));
+  background-image: linear-gradient(
+    to top,
+    rgba(252, 227, 138, 0.9),
+    rgba(243, 129, 129, 0.9)
+  );
   position: absolute;
   top: 0;
   left: 0;
@@ -229,64 +222,79 @@ header {
 
 .team-member-cover:hover .team-member-foto::after,
 .team-member-cover:hover .networks-button {
-    opacity: 1;
+  opacity: 1;
 }
 
 .team-member-foto:hover {
   transform: translate(-10px, -10px);
 }
 
-.networks-button { 
-    display: flex;
-    justify-content: space-around;
-    width: 230px;
-    height: 63px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.2s;
+.networks-button {
+  display: flex;
+  justify-content: space-around;
+  width: 230px;
+  height: 69px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-
 .networks-button a {
-    display: block;
-    width: 60px;
-    height: 60px;
+  display: block;
+  width: 60px;
+  height: 60px;
 }
 
 .networks-button .facebook {
-    background: url(../img/facebook.png) no-repeat center center,  #fce38a;
-    width: 60px;
-    height: 60px;
-    width: 60px;
-    height: 60px;
+  background: url(../img/facebook.png) no-repeat center center, #fce38a;
+  width: 60px;
+  height: 60px;
+  width: 60px;
+  height: 60px;
 }
 .networks-button .twitter {
-    background: url(../img/twitter.png) no-repeat center center,  #fce38a;
-    width: 60px;
-    height: 60px;
+  background: url(../img/twitter.png) no-repeat center center, #fce38a;
+  width: 60px;
+  height: 60px;
 }
 
 .networks-button .pinterest {
-    background: url(../img/pinterest.png) no-repeat center center,  #fce38a;
-    width: 60px;
-    height: 60px;
+  background: url(../img/pinterest.png) no-repeat center center, #fce38a;
+  width: 60px;
+  height: 60px;
 }
 
 .networks-button .instagram {
-    background: url(../img/instagram.png) no-repeat center center,  #fce38a;
-    width: 60px;
-    height: 60px;
+  background: url(../img/instagram.png) no-repeat center center, #fce38a;
+  width: 60px;
+  height: 60px;
 }
 
 .networks-button .facebook:hover,
 .networks-button .twitter:hover,
 .networks-button .pinterest:hover,
 .networks-button .instagram:hover {
-    background-color: #95e1d3;
+  background-color: #95e1d3;
+}
+
+.team-member-name {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+.team-member-position {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999999;
 }
 
 .footer {
