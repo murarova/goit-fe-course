@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,76 +9,79 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="wrapper">
 
-        <div class="container">
-        
-            <header class="header">
-                <div class="logo">
-                    Golden
+        <header class="header container">
+            <div class="logo">
+                <a class="logo" href="#">Golden</a>
+            </div>
+
+            <ul class="menu uppercase">
+                <li class="menu-item"><a href="#">home</a></li>
+                <li class="menu-item"><a href="#">services</a></li>
+                <li class="menu-item"><a href="#">portfolio</a></li>
+                <li class="menu-item"><a href="#">about</a></li>
+                <li class="menu-item"><a href="#">contact</a></li>
+            </ul>
+        </header>
+
+        <section class=" container">
+            <h2 class="title">
+                <div class="title-main uppercase"> services </div>
+                <div class="description">Proin iaculis purus consequat sem cure.</div>
+            </h2>
+
+            <div class="all-services">
+                <div class="servises-card">
+                    <a href="#"><i class="bg-E-Commerce"></i></a>
+                    <h3 class="services-name">E-commerce</h3>
+                    <p class="services-descritpion">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum
+                        suscipit aenean rhoncus posuere odio in tincidunt.</p>
                 </div>
 
-                <ul class="menu uppercase">
-                    <li class="menu-item"><a href="#">home</a></li>
-                    <li class="menu-item"><a href="#">services</a></li>
-                    <li class="menu-item"><a href="#">portfolio</a></li>
-                    <li class="menu-item"><a href="#">about</a></li>
-                    <li class="menu-item"><a href="#">contact</a></li>
-                </ul>
-            </header>
+                <div class="servises-card">
+                    <a href="#"><i class="bg-responsive-web"></i></a>
+                    <h3 class="services-name">Responsive Web</h3>
+                    <p class="services-descritpion">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum
+                        suscipit aenean rhoncus posuere odio in tincidunt.</p>
+                </div>
 
-            <section>
-                <h2 class="title"> 
-                    <span class="uppercase"> services </span>
-                    <span class="description">Lorem ipsum dolor sit amet.</span>
+                <div class="servises-card">
+                    <a href="#"><i class="bg-web-security"></i></a>
+                    <h3 class="services-name">Web-security</h3>
+                    <p class="services-descritpion">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum
+                        suscipit aenean rhoncus posuere odio in tincidunt.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="form-bg">
+            <section class="form-section container">
+                <h2 class="title">
+                    <div class="title-main uppercase"> contact us </div>
+                    <div class="description">Proin iaculis purus consequat sem cure.</div>
                 </h2>
-                
-                <div class="all-services">
-                    <div class="servises-card">
-                        <a href="#"><i class="icon"></i></a>
-                        <h3 class="services-name">E-commerce</h3>
-                        <p class="services-descritpion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quam.</p>
-                    </div>
 
-                    <div class="servises-card">
-                            <a href="#"><i class="icon"></i></a>
-                            <h3 class="services-name">Responsive Web</h3>
-                            <p class="services-descritpion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quam.</p>
-                    </div>
-
-                    <div class="servises-card">
-                            <a href="#"><i class="icon"></i></a>
-                            <h3 class="services-name">Web-security</h3>
-                            <p class="services-descritpion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quam.</p>
-                    </div>
-                </div>
-
-            </section>
-            <section class="form-section">
-
-                    <h2 class="title"> 
-                            <span class="uppercase"> contact us </span>
-                            <span class="description">Lorem ipsum dolor sit amet.</span>
-                    </h2>
-
-                    <form class="form" action="#">
-                        <div class="form-wrapper">
-                            <div class="left-column">
-                                <input class="uppercase" type="text" placeholder="your name" name="user-name">
-                                <input type="text" class="uppercase" placeholder="your-e-mail" name="user-mail">
-                                <input type="text" class="uppercase" placeholder="subject" name="subject">
-                            </div>
-                            <div class="right-column">
-                                <textarea class="uppercase" name="massage"cols="30" rows="10">your massage</textarea>
-                            </div>
+                <form class="form" action="#">
+                    <div class="form-container">
+                        <div class="left-column">
+                            <input class="required uppercase qwerty" type="text" placeholder="your name*" name="name" required>
+                            <input type="email" class="required uppercase" placeholder="your-e-mail*" name="user-mail" required>
+                            <input type="text" class="uppercase" placeholder="subject" name="subject">
                         </div>
-                        <input type="button" class="uppercase" value="send message">
-                    </form>
+                        <div class="right-column">
+                            <textarea placeholder="your message*" name="message" class="required textarea uppercase" required></textarea>
+                        </div>
+                    </div>
 
+                    <button class="button uppercase">send massage</button>
+                </form>
             </section>
         </div>
     </div>
-    
+
 </body>
+
 </html>

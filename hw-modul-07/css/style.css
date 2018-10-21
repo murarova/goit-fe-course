@@ -7,8 +7,44 @@ body {
     height: 100vh;
 }
 
+@font-face {
+    font-family: 'Wisdom-Script';
+    src: url(../fonts/Wisdom-Script.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../fonts/montserrat-v12-latin-regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../fonts/montserrat-v12-latin-600.woff) format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Droid-serif-italic';
+    src: url(../fonts/DroidSerif-Italic.woff) format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url(../fonts/RobotoSlab-Regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 a {
     text-decoration: none;
+    color: black;
 }
 
 .uppercase {
@@ -16,55 +52,190 @@ a {
 }
 
 .wrapper {
-    max-width: 980px;
+    max-width: 1400px;
     height: 100%;
     margin: 0 auto;
 }
 
 .container {
-    width: 90%;
+    width: 940px;
     margin: 0 auto;
 }
 
 .header {
-    width: 100%;
-    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 40px 0 40px 0;
+}
+
+.logo {
+    font-family: 'Wisdom-Script', sans-serif;
+    font-size: 26px;
+    line-height: 41px;
+    letter-spacing: 0.05em;
+    color: #fed136;
+    padding-left: 3px;
 }
 
 .menu {
     display: flex;
-    width: 50%;
+    width: 52%;
     justify-content: space-between;
+    font-family: 'Montserrat', serif;
+    font-size: 14px;
+    line-height: 41px;
+    align-items: flex-end;
+}
+
+.menu-item a {
+    padding: 10px;
+    font-weight: bold;
+}
+
+.menu-item a:hover {
+    color: #fed136;
 }
 
 .title {
     text-align: center;
-    padding-bottom: 50px;
-    padding-top: 50px;
+    padding: 55px 0 73px 0;
+    font-family: 'Montserrat', serif;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 75px;
+    letter-spacing: -0.025em;
+}
+
+.description {
+    font-family: 'Droid-serif-italic', serif; 
+    font-size: 16px;
+    color: #777777;
+    line-height: 19px;
 }
 
 .all-services {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 120px;
+}
+
+.bg-E-Commerce {
+    display: block;
+    width: 74px; height: 73px;
+    background: url(../img/css_sprites.png) -10px -10px;
+    margin: 0 auto;
+}
+
+.bg-responsive-web {
+    display: block;
+    width: 74px; height: 73px;
+    background: url(../img/css_sprites.png) -104px -10px;
+    margin: 0 auto;
+}
+
+.bg-web-security {
+    display: block;
+    width: 74px; height: 73px;
+    background: url(../img/css_sprites.png) -10px -103px;
+    margin: 0 auto;
 }
 
 .servises-card  {
-    width: 33.333%;
+    width: 30%;
 }
 
-.form-wrapper {
+.services-name {
+    font-family: 'Montserrat', serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 60px;
+    letter-spacing: -0.025em;
+    text-align: center;
+}
+
+.services-descritpion {
+    font-family: 'RobotoSlab', serif;
+    font-size: 14px;
+    letter-spacing: -0.025em;
+    color: #777777;
+    line-height: 20px;
+    text-align: center;
+}
+
+.form-bg {
+    background: url(../img/bg-form.png) no-repeat;
+    padding-bottom: 115px;
+}
+
+.form-bg  .title-main{
+    color: white;
+    padding-top: 35px;
+}
+
+
+.form-container {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 .left-column {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    justify-content: space-between;
+    width: 460px;
+    margin-right: 30px;
 }
-.right-column {
-    width: 50%;
+
+.left-column input {
+    height: 50px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.textarea {
+    width: 460px;
+    height: 215px;
+    resize: none;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 20px;
+
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-family: 'Montserrat', serif;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.025em;
+    color: #777777;
+    font-weight: bold;
+}
+/* 
+input:valid,
+textarea:invalid {
+    outline: 1px solid green;
+}
+input:invalid,
+textarea:invalid {
+    outline: 1px solid red;
+} */
+
+.button {
+    width: 240px;
+    height: 65px;
+    display: block;
+    margin: 0 auto;
+    background: #fed136;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    font-family: 'Montserrat', serif;
+    font-size: 18px;
+    letter-spacing: -0.025em;
+    font-weight: bold;
 }
