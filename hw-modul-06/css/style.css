@@ -317,6 +317,8 @@ header {
   opacity: 0.5;
   margin-right: -5px;
   padding: 5px;
+  position: relative;
+  top:px;
 }
 
 .footer .button {

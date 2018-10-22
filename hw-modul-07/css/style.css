@@ -215,15 +215,15 @@ textarea::placeholder {
     color: #777777;
     font-weight: bold;
 }
-/* 
-input:valid,
-textarea:invalid {
+
+input:focus:valid,
+textarea:focus:invalid {
     outline: 1px solid green;
 }
-input:invalid,
-textarea:invalid {
+input:focus:invalid,
+textarea:focus:invalid {
     outline: 1px solid red;
-} */
+}
 
 .button {
     width: 240px;
