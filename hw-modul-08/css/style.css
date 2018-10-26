@@ -123,20 +123,16 @@ h1, h2, p {
 }
 
 .button {
-    background: red;
+    background: #ff4e50;
     border-radius: 20px;
     color: #ffffff;
 }
 
 .button-further {
-    display: block;
-    margin: 5px 0 60px;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 40px;
+    margin: 5px auto 60px;
     border-radius: 20px;
-    color: red;
-    border: 2px solid red;
+    color: #ff4e50;
+    border: 2px solid #ff4e50;
 }
 
 .best-offer {
