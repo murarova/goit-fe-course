@@ -7,8 +7,197 @@ body {
     height: 100vh;
 }
 
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+/*  fonts */
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-style: normal;
+    src: url(../fonts/montserrat-v12-latin-600.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: light;
+    font-style: normal;
+    src: url(../fonts/roboto-v18-latin-300.woff) format('woff');
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
 .wrapper {
-    max-width: 980px;
+    max-width: 320px;
     height: 100%;
     margin: 0 auto;
 }
+
+.base {
+    width: 100%;
+    height: 520px;
+    background: url(../img/Vector\ Smart\ Object.png) no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.header a {
+    padding: 10px;
+    color: #ffffff;
+    font-family: 'Montserrat', serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 90px;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+}
+
+h1, h2, p {
+    text-align: center; 
+}
+
+.main-title {
+    margin: 60px 0 30px;
+    font-family: 'Montserrat', serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+}
+
+.title {
+    margin-bottom: 20px;
+    font-family: 'Montserrat', serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.title-description {
+    margin-bottom: 30px;
+    font-family: 'Roboto', serif;
+    font-weight: light;
+    font-size: 18px;
+}
+
+.button,
+.button-further {
+    height: 40px;
+    width: 280px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', serif;
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+.button {
+    background: red;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+.button-further {
+    border-radius: 20px;
+    color: red;
+    border: 2px solid red;
+}
+
+.best-offer {
+    padding-top: 60px;
+}
+
+.best-offer-title {
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Montserrat', serif;
+    font-weight: bold;
+    font-size: 22px;
+    
+}
+.partner-card {
+    width: 240px;
+    height: 260px;
+    padding: 10px;
+    margin: 0 auto;
+}
+.name {
+    font-family: 'Montserrat', serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+.about-me {
+    font-family: 'Roboto', serif;
+    font-weight: light;
+    font-size: 14px;
+}
+
+.img-cover {
+    width: 121px;
+    height: 121px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.icon {
+    display: block;
+    position: absolute;
+    top: 70%;
+    right: -5%; 
+}
+
+/*spites*/
+
+.bg-bottle {
+    width: 41px; height: 40px;
+    background: url(../img/css_sprites.png) -71px -71px;
+}
+
+.bg-coffee {
+    width: 41px; height: 41px;
+    background: url(../img/css_sprites.png) -10px -10px;
+}
+
+.bg-screen {
+    width: 41px; height: 41px;
+    background: url(../img/css_sprites.png) -71px -10px;
+}
+
+.bg-telegram {
+    width: 41px; height: 41px;
+    background: url(../img/css_sprites.png) -10px -71px;
+}
+
+
+
+
+
+
