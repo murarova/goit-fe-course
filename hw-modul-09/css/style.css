@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-style: normal;
+  src: url(../fonts/montserrat-v12-latin-600.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: light;
+  font-style: normal;
+  src: url(../fonts/roboto-v18-latin-300.woff) format("woff");
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.main-section-bg {
+  background: url(../img/bg-mobile.png) no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.header {
+    padding-top: 20px;
+  }
+  
+  .autorization {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+  }
+  
+  .log-in,
+  .sign-up {
+    padding: 10px;
+    color: #ffffff;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .sign-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 90px;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+  }
+  
+  .logo {
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    line-height: 0.8;
+    color: #fff;
+    padding: 10px;
+  }
+
+.title {
+  margin: 35px auto 1rem;
+  font-family: "Montserrat", serif;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+}
+
+.title-description {
+  margin: 0 auto 20px;
+  font-family: "Roboto", serif;
+  font-weight: light;
+  font-size: 18px;
+  text-align: center;
+  color:#fff;
+}
+
+.button,
+.button-further {
+  height: 40px;
+  max-width: 280px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.button {
+  background: #ff4e50;
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.button-further {
+  margin-bottom: 60px;
+  border-radius: 20px;
+  color: #ff4e50;
+  border: 2px solid #ff4e50;
+}
+
+.best-offer-section {
+  padding-top: 60px;
+}
+
+.best-offer-title {
+  padding: 5px 0 15px;
+  font-weight: bold;
+  font-family: "Montserrat", serif;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.best-offer-card {
+  width: 240px;
+  height: 260px;
+  margin: 0 auto;
+}
+
+.img-cover {
+  width: 121px;
+  height: 121px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.icon {
+  display: block;
+  position: absolute;
+  top: 70%;
+  right: -4%;
+}
+
+/*spites*/
+
+.bg-bottle {
+  width: 41px;
+  height: 40px;
+  background: url(../img/css_sprites.png) -71px -71px;
+}
+
+.bg-coffee {
+  width: 41px;
+  height: 41px;
+  background: url(../img/css_sprites.png) -10px -10px;
+}
+
+.bg-screen {
+  width: 41px;
+  height: 41px;
+  background: url(../img/css_sprites.png) -71px -10px;
+}
+
+.bg-telegram {
+  width: 41px;
+  height: 41px;
+  background: url(../img/css_sprites.png) -10px -71px;
+}
+
+.name {
+  padding-top: 20px;
+  font-family: "Montserrat", serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.1;
+  text-align: center;
+}
+.about-me {
+  padding: 17px 3px 13px;
+  font-family: "Roboto", serif;
+  font-weight: light;
+  font-size: 14px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+@media (min-width: 758px) {
+    .main-section-bg {
+      background: url(../img/bg-tablet.png) no-repeat;
+      background-size: cover;
+    }
+  
+    .title {
+      font-size: 52px;
+    }
+    .title-description {
+      font-size: 24px;
+      margin-bottom: 35px;
+    }
+  
+    .partner-list {
+      display: flex;
+      flex-wrap: wrap;
+      width: 520px;
+      margin: 0 auto;
+    }
+  
+    .button {
+      width: 220px;
+    }
+  
+    .button-further {
+      width: 195px;
+      margin-top: 50px;
+    }
+  
+    .best-offer-title {
+      width: auto;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .main-section-bg {
+      background: url(../img/bg-desktop.png) no-repeat;
+      background-size: cover;
+    }
+    
+    .header {
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  
+    .partner-list {
+      width: auto;
+      flex-wrap: nowrap;
+    }
+  
+    .best-offer {
+      margin: 0 auto;
+    }
+  }
+
+
