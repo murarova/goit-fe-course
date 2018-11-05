@@ -39,6 +39,7 @@ img {
 .wrapper {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .main-section-bg {
@@ -53,7 +54,7 @@ img {
   
   .autorization {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 120px;
   }
   
@@ -64,9 +65,20 @@ img {
     font-family: "Montserrat", serif;
     font-weight: bold;
     font-size: 14px;
+    min-height: 35px;
   }
   
-  .sign-up {
+  .sign-up:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 90px;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+  }
+
+  .log-in:hover {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,14 +100,17 @@ img {
     padding: 10px;
   }
 
+
+
 .title {
-  margin: 35px auto 1rem;
+  margin: 3rem auto 1rem;
   font-family: "Montserrat", serif;
   font-weight: bold;
   font-size: 30px;
   line-height: 1.2;
   text-align: center;
   color: #fff;
+  max-width: 500px;
 }
 
 .title-description {
@@ -107,38 +122,35 @@ img {
   color:#fff;
 }
 
-.button,
-.button-further {
+.button {
   height: 40px;
   max-width: 280px;
   display: flex;
-  margin: 0 auto;
+  margin: 0 auto 60px;
   justify-content: center;
   align-items: center;
   font-family: "Montserrat", serif;
   font-weight: bold;
   font-size: 14px;
-}
-
-.button {
   background: #ff4e50;
   border-radius: 20px;
   color: #ffffff;
 }
 
-.button-further {
-  margin-bottom: 60px;
-  border-radius: 20px;
+
+.button:hover {
+  background: #fff;
   color: #ff4e50;
   border: 2px solid #ff4e50;
 }
 
 .best-offer-section {
   padding-top: 60px;
+  margin: 0 auto;
 }
 
 .best-offer-title {
-  padding: 5px 0 15px;
+  padding: 5px 0 2rem;
   font-weight: bold;
   font-family: "Montserrat", serif;
   font-weight: bold;
@@ -149,7 +161,7 @@ img {
 }
 
 .best-offer-card {
-  width: 240px;
+  max-width: 240px;
   height: 260px;
   margin: 0 auto;
 }
@@ -224,27 +236,6 @@ img {
       font-size: 24px;
       margin-bottom: 35px;
     }
-  
-    .partner-list {
-      display: flex;
-      flex-wrap: wrap;
-      width: 520px;
-      margin: 0 auto;
-    }
-  
-    .button {
-      width: 220px;
-    }
-  
-    .button-further {
-      width: 195px;
-      margin-top: 50px;
-    }
-  
-    .best-offer-title {
-      width: auto;
-      margin-bottom: 20px;
-    }
   }
   
   @media (min-width: 1440px) {
@@ -252,20 +243,5 @@ img {
       background: url(../img/bg-desktop.png) no-repeat;
       background-size: cover;
     }
-    
-    .header {
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-  
-    .partner-list {
-      width: auto;
-      flex-wrap: nowrap;
-    }
-  
-    .best-offer {
-      margin: 0 auto;
-    }
+
   }
-
-

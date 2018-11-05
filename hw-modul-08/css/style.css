@@ -39,6 +39,7 @@ a {
 .wrapper {
   position: relative;
   margin: 0 auto;
+
 }
 
 .base {
@@ -221,6 +222,11 @@ p {
   line-height: 1.1;
 }
 
+@media (max-width: 758px) {
+  .wrapper {
+    min-width: 320px;
+  }
+}
 @media (min-width: 758px) {
   .base {
     background: url(../img/bg-tablet.png) no-repeat;
