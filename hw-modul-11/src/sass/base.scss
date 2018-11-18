@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: #111
+}
+
