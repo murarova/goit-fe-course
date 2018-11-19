@@ -1,18 +1,17 @@
 .header {
+  @include center-flex('ver');
   position: absolute;
   left: 50%;
   top: 0;
   transform: translate(-50%, 0);
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   min-height: 100px;
   z-index: 1;
   width: 1200px;
   font-family: $main-font-stack;
 }
 
-.header-logo__link {
+.logo--header__link {
   font-weight: bold;
   font-size: 30px;
   color: $welcome-section-font-color;

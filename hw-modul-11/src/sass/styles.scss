@@ -2,6 +2,7 @@
    Import partials below
 */
 @import './helpers/variables';
+@import './helpers/mixins';
 @import './normalize';
 @import './base';
 @import './typography';
@@ -17,7 +18,10 @@
 @import './components/welcome-section/welcome-section';
 @import './components/welcome-section/welcome-section-title';
 @import './components/welcome-section/welcome-section-btn';
-// @import './components/'
-// @import './components/'
-// @import './components/'
-// @import './components/'
+@import './components/servises-section/servises-title';
+@import './components/servises-section/servises-list';
+@import './components/servises-section/servises-item';
+@import './components/team-section/team-title';
+@import './components/team-section/team-list';
+@import './components/team-section/team-member';
+@import './components/footer';

@@ -1,22 +1,22 @@
 .welcome-section__title {
-    margin: 0 auto;
-    width: 850px;
-    text-align: center;
-    color: $welcome-section-font-color;
+  margin: 0 auto;
+  width: 850px;
+  text-align: center;
+  color: $welcome-section-font-color;
 
-    &--italic {
-        font-family: $first-title-font;
-        font-size: 72px;
-        font-weight: normal;
-        margin-bottom: 50px;
-      }
-
-    &--uppercase {
-        font-family: $main-font-stack;
-        font-weight: bold;
-        font-size: 150px;
-        line-height: 140px;
-        text-transform: uppercase;
-        margin-bottom: 100px;
-      }
+  &--italic {
+    font-family: $first-title-font;
+    font-size: 72px;
+    font-weight: normal;
+    margin-bottom: 50px;
   }
+
+  &--uppercase {
+    font-family: $main-font-stack;
+    font-weight: bold;
+    font-size: 150px;
+    line-height: 140px;
+    text-transform: uppercase;
+    margin-bottom: 100px;
+  }
+}

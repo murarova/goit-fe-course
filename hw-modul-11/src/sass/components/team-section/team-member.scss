@@ -1,0 +1,112 @@
+.team-member {
+  position: relative;
+  margin: 0 30px 80px 0;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.team-member__cover {
+  position: relative;
+
+  &:before {
+    content: "";
+    background: #95e1d3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.team-member__foto {
+  position: relative;
+  width: 380px;
+  height: 470px;
+  transition: transform 0.4s;
+
+  &::after {
+    content: "";
+    background-image: linear-gradient(
+      to top,
+      rgba(252, 227, 138, 0.9),
+      rgba(243, 129, 129, 0.9)
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  &:hover {
+    transform: translate(-10px, -10px);
+  }
+}
+
+.team-member__cover:hover .team-member__foto::after,
+.team-member__cover:hover .team-member__networks-btn {
+  opacity: 1;
+}
+
+
+.team-member__networks-btn {
+  display: flex;
+  justify-content: space-around;
+  width: 230px;
+  height: 69px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.team-member__networks-btn a {
+  @include center-flex('all');
+  width: 60px;
+  height: 60px;
+}
+
+.team-member__networks-btn--icon {
+  width: 60px;
+  height: 60px;
+  background: $welcome-section-accent-color;
+  transition: background 0.4s;
+}
+
+.svg-icon {
+  fill: $servises-section-accent-color;
+  transition: fill 0.4s;
+}
+
+.team-member__networks-btn--icon:hover .svg-icon {
+  fill: $servises-section-accent-color;
+}
+
+.team-member__networks-btn--icon:hover {
+  background-color: $servises-section-accent-color;
+}
+
+.team-member__name {
+  text-align: center;
+  font-family: $main-font-stack;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 30px 0 5px;
+}
+
+.team-member__position {
+  text-align: center;
+  font-family: $description-font;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999999;
+}
