@@ -11,54 +11,72 @@
 /* Есть база данных товаров, в формате "имя-товара":"цена за одну единицу" */
 
 const products = {
-	// price
-	bread: 10,
-	milk: 15,
-	apples: 20,
-	chicken: 50,
-	cheese: 40
+  // price
+  bread: 10,
+  milk: 15,
+  apples: 20,
+  chicken: 50,
+  cheese: 40
 };
 
 const order = {
-	bread: 2,
-	milk: 2,
-	apples: 1,
-	cheese: 1
+  bread: 2,
+  milk: 2,
+  apples: 1,
+  cheese: 1
 };
 
 function Cashier(name, productDatabase) {
+  	(this.name = name),
+    (this.productDatabase = productDatabase),
+    (this.customerMoney = 0),
+    (this.getCustomerMoney = function(value) {
+      let customerMoney = value;
+	}),
+	
+    (this.countTotalPrice = function(order) {
 
-		(this.name = name),
-		(this.productDatabase = productDatabase),
-		(this.customerMoney = 0),
-		(this.getCustomerMoney = function(value) {
-			let customerMoney = value;
-		}),
+      const orderEntries = Object.entries(order);
+	  const productsEntries = Object.entries(products);
+	  let sum = 0;
 
-		(this.countTotalPrice = function(order) {
-			
-			const orderEntries = Object.entries(order);
-			const productsEntries = Object.entries(products);
+      for (const orderEntry of orderEntries) {
 
-			for (const orderEntry in orderEntries) {
-				// console.log(entries[entry]);
-				let orderName = orderEntries[0];
-				let orderNumber = orderEntries[1];
-				
-				
+        let orderName = orderEntry[0];
+		let orderNumber = orderEntry[1];
+		
+		for(const productEntry of productsEntries) {
+
+			let productValue = 0;
+			let productName = productEntry[0];
+			let productPrice = productEntry[1];
+
+			if(orderName == productName) {
+				productValue = orderNumber*productPrice;
+				sum += productValue;
+				break
 			}
-		}),
-
-		(this.countChange = function(totalPrice) {}),
-		(this.onSuccess = function(change) {}),
-		(this.onError = function() {}),
-		(this.reset = function() {
-			this.customerMoney = 0;
-		});
+		}
+	  }
+	  return sum;
+	}),
+	
+    (this.countChange = function(totalPrice) {
+		if(this.customerMoney >= totalPrice ) {
+			let change = totalPrice - this.customerMoney;
+			return change;
+		}
+		return null;
+	}),
+    (this.onSuccess = function(change) {}),
+    (this.onError = function() {}),
+    (this.reset = function() {
+      this.customerMoney = 0;
+    });
 }
 
 const mango = new Cashier("Mango", products);
-console.log(mango.countTotalPrice(order));
+console.log(mango.countChange(order));
 
 /* 
 	Необходимо создать функцию-конструктор Cashier.
