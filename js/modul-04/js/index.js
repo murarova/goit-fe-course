@@ -22,48 +22,37 @@ const order = {
 };
 
 function Cashier(name, productDatabase) {
-	(this.name = name),
-	(this.productDatabase = productDatabase),
-	(this.customerMoney = 0),
-	(this.getCustomerMoney = function(value) {
+	this.name = name,
+	this.productDatabase = productDatabase,
+	this.customerMoney = 0,
+	this.getCustomerMoney = function(value) {
 		this.customerMoney = value;
-	}),
-	(this.countTotalPrice = function(order) {
-		const orderEntries = Object.entries(order);
-		const productsEntries = Object.entries(products);
+	},
+	this.countTotalPrice = function(order) {
 		let sum = 0;
 
-		for (const orderEntry of orderEntries) {
-			let [orderName, orderNumber] = orderEntry;
-
-			for (const productEntry of productsEntries) {
-				let [productName, productPrice] = productEntry;
-
-				if (orderName === productName) {
-					let productValue = orderNumber * productPrice;
-					sum += productValue;
-					break;
-				}
-			}
+		for (const key in order) {
+			let multiplication = order[key] * products[key];
+			sum += multiplication;
 		}
 		return sum;
-		}),
-	(this.countChange = function(totalPrice) {
+	},
+	this.countChange = function(totalPrice) {
 		if (this.customerMoney >= totalPrice) {
 			let change = this.customerMoney - totalPrice;
 			return change;
 		}
 		return null;
-	}),
-	(this.onSuccess = function(change) {
+	},
+	this.onSuccess = function(change) {
 		console.log(`Спасибо за покупку, ваша сдача ${change}!`);
-	}),
-	(this.onError = function() {
+	},
+	this.onError = function() {
 		console.log("Очень жаль, вам не хватает денег на покупки");
-	}),
-	(this.reset = function() {
+	},
+	this.reset = function() {
 		this.customerMoney = 0;
-	});
+	};
 }
 
 /* Пример использования */
