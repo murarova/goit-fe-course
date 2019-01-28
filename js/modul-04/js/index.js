@@ -55,6 +55,8 @@ function Cashier(name, productDatabase) {
 	};
 }
 
+
+
 /* Пример использования */
 const mango = new Cashier("Mango", products);
 
