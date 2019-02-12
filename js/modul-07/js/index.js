@@ -36,9 +36,6 @@ const posts = [
 	];
 	
 
-
-	// img, title, text, link
-
 	function createPostCard(post) {
 
 		//select root
@@ -65,7 +62,7 @@ const posts = [
         cardLink.setAttribute('href', '#');
 
         //textContent
-                cardTitle.textContent = post.title;
+        cardTitle.textContent = post.title;
         cardText.textContent = post.text;
         cardLink.textContent = post.link;
 
