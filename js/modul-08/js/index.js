@@ -75,42 +75,55 @@ const galleryItems = [
   }
 ];
 
-const imageGalary = document.querySelector(".image-gallery");
-
-function makeGalary(arr) {
-  let li = "";
-  for (const el of arr) {
-    let markup = `<li><img src=${el.preview} data-fullview=${el.fullview} alt=${
-      el.alt
-    }></li>`;
-    li += markup;
+class Gallery {
+  constructor({ items, parentNode, defaultActiveItem }) {
+    this.items = items;
+    this.parentNode = parentNode;
+    this.defaultActiveItem = defaultActiveItem;
+    this.makeGalary();
   }
 
-  const mainMarkup = `
-    <div class="fullview">
-      <img src=${arr[0].fullview} alt=${arr[0].alt}>
-    </div>
-    <ul class="preview"> ${li}</ul>`;
+  makeGalary() {
+    let li = "";
+    for (const el of this.items) {
+      let markup = `<li><img src=${el.preview} data-fullview=${
+        el.fullview
+      } alt=${el.alt}></li>`;
+      li += markup;
+    }
 
-  imageGalary.insertAdjacentHTML("afterbegin", mainMarkup);
+    const mainMarkup = `
+    <div class="wrapper">
+      <div class="fullview">
+        <img src=${this.items[this.defaultActiveItem - 1].fullview} alt=${this.items[this.defaultActiveItem - 1].alt}>
+      </div>
+      <ul class="preview"> ${li}</ul>
+    </div>`;
 
-  const preview = document.querySelector(".preview");
-  const fullview = document.querySelector(".fullview");
-  const liList = preview.querySelectorAll("li");
+    this.parentNode.insertAdjacentHTML("afterbegin", mainMarkup);
 
-  function setFullview(e) {
-    fullview.firstElementChild.setAttribute("src", e.target.dataset.fullview);
+    const preview = this.parentNode.querySelector(".preview");
+    const fullview = this.parentNode.querySelector(".fullview");
+    const liList = preview.querySelectorAll("li");
 
-    liList.forEach(element => {
-      if (element !== e.target.parentNode) {
-        element.classList.remove("active");
-      } else {
-        element.classList.add("active");
-      }
-    });
+    function setFullview(e) {
+      fullview.firstElementChild.setAttribute("src", e.target.dataset.fullview);
+
+      liList.forEach(element => {
+        if (element !== e.target.parentNode) {
+          element.classList.remove("active");
+        } else {
+          element.classList.add("active");
+        }
+      });
+    }
+
+    preview.addEventListener("click", setFullview);
   }
-
-  preview.addEventListener("click", setFullview);
 }
 
-makeGalary(galleryItems);
+const gallary = new Gallery({
+  items: galleryItems,
+  parentNode: document.querySelector(".image-gallery"),
+  defaultActiveItem: 1
+});
