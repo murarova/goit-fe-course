@@ -4,19 +4,6 @@
   box-sizing: border-box;
 }
 
-.fullview img {
-  width: 1280px;
-  height: 853px;
-  padding: 10px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-}
-
-.preview img {
-  width: 320px;
-  height: 213px;
-  padding: 5px;
-}
-
 ul {
   list-style: none;
 }
@@ -24,20 +11,31 @@ ul {
 .wrapper {
   padding-top: 20px;
   margin: 0 auto;
-  width: 1280px;
+  width: 50%;
 }
 
 .fullview {
-  display: flex;
-  justify-content: center;
   margin-bottom: 10px;
 }
 
 .preview {
   display: flex;
-  justify-content: center;
-  padding: 5px;
+  align-items: center;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.fullview img {
+  max-width: 100%;
+  height: auto;
+  padding: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.preview img {
+  display: flex;
+  max-width: 100%;
+  height: auto;
+  padding: 5px;
 }
 
 .active {
