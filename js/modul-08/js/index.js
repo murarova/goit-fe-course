@@ -53,46 +53,64 @@
 */
 
 const galleryItems = [
-	{ preview: 'img/preview-1.jpeg', fullview: 'img/fullview-1.jpeg', alt: "alt text 1" },
-	{ preview: 'img/preview-2.jpeg', fullview: 'img/fullview-2.jpeg', alt: "alt text 2" },
-	{ preview: 'img/preview-3.jpeg', fullview: 'img/fullview-3.jpeg', alt: "alt text 3" },
-	{ preview: 'img/preview-4.jpeg', fullview: 'img/fullview-4.jpeg', alt: "alt text 4" },
-	{ preview: 'img/preview-5.jpeg', fullview: 'img/fullview-5.jpeg', alt: "alt text 5" },
-	{ preview: 'img/preview-6.jpeg', fullview: 'img/fullview-6.jpeg', alt: "alt text 6" },
-  ];
+  {
+    preview: "img/preview-2.jpeg",
+    fullview: "img/fullview-2.jpeg",
+    alt: "alt text 2"
+  },
+  {
+    preview: "img/preview-4.jpeg",
+    fullview: "img/fullview-4.jpeg",
+    alt: "alt text 4"
+  },
+  {
+    preview: "img/preview-3.jpeg",
+    fullview: "img/fullview-3.jpeg",
+    alt: "alt text 3"
+  },
+  {
+    preview: "img/preview-6.jpeg",
+    fullview: "img/fullview-6.jpeg",
+    alt: "alt text 6"
+  }
+];
 
+const imageGalary = document.querySelector(".image-gallery");
 
-const imageGalary = document.querySelector('.image-gallery');
-
-let li = '';
-for (const el of galleryItems) {
-    let markup = `<li><img src=${el.preview} data-fullview=${el.fullview} alt=${el.alt}></li>`;
+function makeGalary(arr) {
+  let li = "";
+  for (const el of arr) {
+    let markup = `<li><img src=${el.preview} data-fullview=${el.fullview} alt=${
+      el.alt
+    }></li>`;
     li += markup;
+  }
+
+  const mainMarkup = `
+    <div class="fullview">
+      <img src=${arr[0].fullview} alt=${arr[0].alt}>
+    </div>
+    <ul class="preview"> ${li}</ul>`;
+
+  imageGalary.insertAdjacentHTML("afterbegin", mainMarkup);
+
+  const preview = document.querySelector(".preview");
+  const fullview = document.querySelector(".fullview");
+  const liList = preview.querySelectorAll("li");
+
+  function setFullview(e) {
+    fullview.firstElementChild.setAttribute("src", e.target.dataset.fullview);
+
+    liList.forEach(element => {
+      if (element !== e.target.parentNode) {
+        element.classList.remove("active");
+      } else {
+        element.classList.add("active");
+      }
+    });
+  }
+
+  preview.addEventListener("click", setFullview);
 }
 
-const mainMarkup = 
-`<div class="fullview">
-<img src="img/fullview-1.jpeg" alt="alt text 1">
-</div>
-
-<ul class="preview"> ${li}</ul>`;
-
-imageGalary.insertAdjacentHTML('afterbegin', mainMarkup);
-
-const preview = document.querySelector('.preview');
-const fullview = document.querySelector('.fullview');
-
-function setFullview(e){
-    // fullview.firstElementChild.setAttribute('src', e.target.data-fullview);
-    // console.log(e.target);
-}
-
-preview.addEventListener('click',setFullview)
-
-const img = document.querySelectorAll('img');
-console.log(img);
-
-
-
-
-
+makeGalary(galleryItems);
