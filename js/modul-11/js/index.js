@@ -115,40 +115,66 @@ const laptops = [
 	},
 ];
 
+const form = document.querySelector('.js-form');
+const btn = form.querySelector('#reset');
+const inputs = Array.from(form.querySelectorAll('input'));
 const catalog = document.querySelector('.catalog');
 const sourse = document.querySelector('.cards').innerHTML.trim();
 const template = Handlebars.compile(sourse);
 
-const markUp = laptops.reduce((acc, laptop) => acc + template(laptop), '');
+let markUp = laptops.reduce((acc, laptop) => acc + template(laptop), '');
 catalog.insertAdjacentHTML('afterbegin', markUp);
 
+let filter = { 
+	size: [], 
+	color: [], 
+	release_date: [] 
+};
 
+function checkFilter({size, color, release_date}, laptop) {
 
-const form = document.querySelector('.js-form');
-const inputs = Array.from(form.querySelectorAll('input'));
+		let checkSize = size.length > 0 ? size.includes(`${laptop.size}`) : true;
+		let checkColor = color.length > 0 ? color.includes(`${laptop.color}`) : true;
+		let checkRelease = release_date.length > 0 ? release_date.includes(`${laptop.release_date}`) : true;
+
+		if(checkSize && checkColor && checkRelease){
+			return true;
+		} 
+		return false;
+}
+
 
 function showStatus(e) {
 	e.preventDefault();
-
-	let filter = { 
-		size: [], 
-		color: [], 
-		release_date: [] 
-	};
+	catalog.innerHTML = '';
 
 	inputs.forEach(el => {
 		if(el.checked) {
 			filter[el.name].push(el.value);
 		}
 	});
-	console.log(filter);
-	return filter
+
+	markUp = laptops.reduce((acc, laptop) => {
+		if(checkFilter(filter, laptop)) {
+			acc += template(laptop)
+		} return acc;
+	}, '');
+
+	catalog.insertAdjacentHTML('afterbegin', markUp);
+
+	filter = { 
+		size: [], 
+		color: [], 
+		release_date: [] 
+	};
 }
 
+function clear() {
+	catalog.innerHTML = '';
+	markUp = laptops.reduce((acc, laptop) => acc + template(laptop), '');
+	catalog.insertAdjacentHTML('afterbegin', markUp);
+}
+
+btn.addEventListener('click', clear);
 form.addEventListener('submit', showStatus)
 
-// добавить слушателя на кнопку +
-
-// если чекд - тру - то ел.вэлю пушить в ел.нейм +
-// по кнопке будет наполнятся объект фильтра +
-// разметка будет рендерится исходя их значений фильтра
