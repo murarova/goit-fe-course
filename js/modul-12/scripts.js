@@ -40,34 +40,32 @@
       для получения этой информации воспользуйтесь этим Rest API - https://www.linkpreview.net/
 */
 
-const sourse = document.querySelector('.template').innerHTML.trim();
+const sourse = document.querySelector(".template").innerHTML.trim();
 const template = Handlebars.compile(sourse);
-const cardList = document.querySelector('.card-list');
-const input = document.querySelector('#input');
-const form = document.querySelector('.form');
-const URL = 'http://api.linkpreview.net/?key=5c90e99e4c39368cdd7cf8954323ce3a4329051385e2c&q=';
-const pattern = /^(https?:\/\/)?([\da-z\.-]+\.[a-z\.]{2,6}|[\d\.]+)([\/:?=&#]{1}[\da-z\.-]+)*[\/\?]?$/igm;
-
+const cardList = document.querySelector(".card-list");
+const input = document.querySelector("#input");
+const form = document.querySelector(".form");
+const URL =
+  "https://api.linkpreview.net/?key=5c90e99e4c39368cdd7cf8954323ce3a4329051385e2c&q=";
+const pattern = /^(https?:\/\/)?([\da-z\.-]+\.[a-z\.]{2,6}|[\d\.]+)([\/:?=&#]{1}[\da-z\.-]+)*[\/\?]?$/gim;
 
 let linksArr = [];
 
 const LOCALSTORAGE = (w => {
   if (!w) return;
-  
+
   const isActive = "localStorage" in w;
-  
+
   const get = key => {
     try {
       const serializedState = localStorage.getItem(key);
-  
-      return serializedState === null
-        ? undefined
-        : JSON.parse(serializedState);
+
+      return serializedState === null ? undefined : JSON.parse(serializedState);
     } catch (err) {
       console.error("Get state error: ", err);
     }
   };
-  
+
   const set = (key, value) => {
     try {
       const serializedState = JSON.stringify(value);
@@ -76,52 +74,50 @@ const LOCALSTORAGE = (w => {
       console.error("Set state error: ", err);
     }
   };
-  const remove = (key) => {
+  const remove = key => {
     try {
       localStorage.removeItem(key);
     } catch (err) {
       console.error("Remove state error: ", err);
     }
   };
-  
+
   const publicAPI = {
     isActive,
     get,
     set,
     remove
   };
-  
-  return publicAPI;
-  })(window);
 
-function urlValidate (url, pattern) {
+  return publicAPI;
+})(window);
+
+function urlValidate(url, pattern) {
   return pattern.test(url)? true : false;
 }
 
 (function preload() {
-  if(LOCALSTORAGE.get("linksArr") === undefined) return
+  if (LOCALSTORAGE.get("linksArr") === undefined) return;
   linksArr = LOCALSTORAGE.get("linksArr");
   getLinkinfo(linksArr);
 })();
 
-
-function handleClick (e) {
+function handleClick(e) {
   e.preventDefault();
 
-  cardList.innerHTML = '';
+  cardList.innerHTML = "";
 
-  if(urlValidate(input.value, pattern)) {
-
-      if(!linksArr.includes(input.value)) {
-        linksArr.push(input.value);
-        LOCALSTORAGE.set("linksArr", linksArr);
-      }else {
-        alert('This link is in the list of bookmarks alredy');
-        return
-      }
+  if (urlValidate(input.value, pattern)) {
+    if (!linksArr.includes(input.value)) {
+      linksArr.push(input.value);
+      LOCALSTORAGE.set("linksArr", linksArr);
+    } else {
+      alert("This link is in the list of bookmarks alredy");
+      return;
+    }
   } else {
-    console.log('Please enter a link');
-    return
+    console.log("Please enter a link");
+    return;
   }
 
   getLinkinfo(linksArr);
@@ -129,23 +125,23 @@ function handleClick (e) {
 }
 
 function getLinkinfo(linksArr) {
-
   linksArr.forEach(el => {
     fetch(`${URL}${el}`)
-    .then(response => {
-      if(response.ok) return response.json();
-      throw new Error("Error fetching data")})
-    .then(data => makeMarkUp(data))
-    .catch(err => console.log(err))   
+      .then(response => {
+        if (response.ok) return response.json();
+        throw new Error("Error fetching data");
+      })
+      .then(data => makeMarkUp(data))
+      .catch(err => console.log(err));
     // makeMarkUp(el);
   });
 }
 
-function makeMarkUp (data) {
-  let linksInfo = []; 
+function makeMarkUp(data) {
+  let linksInfo = [];
   linksInfo.push(data);
-  let markUp =  linksInfo.reduce((acc, link) => acc + template(link),"");
-  cardList.insertAdjacentHTML('afterbegin', markUp);
+  let markUp = linksInfo.reduce((acc, link) => acc + template(link), "");
+  cardList.insertAdjacentHTML("afterbegin", markUp);
 }
 
 function deleteLink(e) {
@@ -153,10 +149,10 @@ function deleteLink(e) {
   linksArr.splice(linksArr.indexOf(a), 1);
   LOCALSTORAGE.set("linksArr", linksArr);
 
-  cardList.innerHTML = '';
+  cardList.innerHTML = "";
 
   getLinkinfo(linksArr);
 }
 
-cardList.addEventListener('click', deleteLink)
-form.addEventListener('submit', handleClick);
+cardList.addEventListener("click", deleteLink);
+form.addEventListener("submit", handleClick);
