@@ -13,7 +13,7 @@
 
         <form class="form">
             <label for="input"></label>
-            <input type="text" id="input" placeholder="Please enter a link">
+            <input type="url" id="input" placeholder="Please enter a link">
             <button type="submit" class="button" >SUBMIT</button>
         </form>
 
@@ -22,10 +22,11 @@
             <li class="card-item">
                 <div class="card">
                     <div class="img-cover">
-                        <img class="img" src="{{image}}" alt="">
+                        <!-- <img class="img" src="{{image}}" alt=""> -->
                     </div>
-                    <a href="{{url}}" class="link">{{title}}</a>
-                    <p class="desc">{{description}}</p>
+                    <!-- <h2 class="title">{{title}}</h2> -->
+                    <a href="{{url}}" class="link">{{url}}</a>
+                    <!-- <p class="desc">{{description}}</p> -->
                     <button class="button">Delete</button>
                 </div>
             </li>
@@ -37,6 +38,6 @@
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

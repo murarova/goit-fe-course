@@ -47,7 +47,7 @@ const input = document.querySelector("#input");
 const form = document.querySelector(".form");
 const URL =
   "https://api.linkpreview.net/?key=5c90e99e4c39368cdd7cf8954323ce3a4329051385e2c&q=";
-const pattern = /^(https?:\/\/)?([\da-z\.-]+\.[a-z\.]{2,6}|[\d\.]+)([\/:?=&#]{1}[\da-z\.-]+)*[\/\?]?$/gim;
+
 
 let linksArr = [];
 
@@ -92,9 +92,6 @@ const LOCALSTORAGE = (w => {
   return publicAPI;
 })(window);
 
-function urlValidate(url, pattern) {
-  return pattern.test(url)? true : false;
-}
 
 (function preload() {
   if (LOCALSTORAGE.get("linksArr") === undefined) return;
@@ -107,18 +104,13 @@ function handleClick(e) {
 
   cardList.innerHTML = "";
 
-  if (urlValidate(input.value, pattern)) {
-    if (!linksArr.includes(input.value)) {
-      linksArr.push(input.value);
-      LOCALSTORAGE.set("linksArr", linksArr);
-    } else {
-      alert("This link is in the list of bookmarks alredy");
-      return;
-    }
-  } else {
-    console.log("Please enter a link");
-    return;
-  }
+      if (!linksArr.includes(input.value)) {
+        linksArr.push(input.value);
+        LOCALSTORAGE.set("linksArr", linksArr);
+      } else {
+        alert("This link is in the list of bookmarks alredy");
+        return;
+      }
 
   getLinkinfo(linksArr);
   form.reset();
@@ -137,10 +129,26 @@ function getLinkinfo(linksArr) {
   });
 }
 
+// function makeCard(arr) {
+
+//     arr.reduce( )
+
+//     <li class="card-item">
+//         <div class="card">
+//             <div class="img-cover">
+//                 <img class="img" src="{{image}}" alt="">
+//             </div>
+//             <a href="{{url}}" class="link">{{title}}</a>
+//             <p class="desc">{{description}}</p>
+//             <button class="button">Delete</button>
+//         </div>
+//     </li>
+// }
+
 function makeMarkUp(data) {
   let linksInfo = [];
   linksInfo.push(data);
-  let markUp = linksInfo.reduce((acc, link) => acc + template(link), "");
+  let markUp = linksInfo.reduce((acc, obj) => acc + template(obj), "");
   cardList.insertAdjacentHTML("afterbegin", markUp);
 }
 
