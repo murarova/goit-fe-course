@@ -3,7 +3,7 @@ const template = Handlebars.compile(sourse);
 const cardList = document.querySelector(".card-list");
 const input = document.querySelector("#input");
 const form = document.querySelector(".form");
-const button = form.querySelector(".button");
+const button = document.querySelector(".button");
 const cardItem = document.querySelector(".card-item");
 const URL =
 	"https://api.linkpreview.net/?key=5c90e99e4c39368cdd7cf8954323ce3a4329051385e2c&q=";
@@ -65,9 +65,7 @@ const LOCALSTORAGE = (w => {
 function addCard(e) {
     e.preventDefault();
 
-    let inputValue = {url: input.value};
-    
-    if (!linksArr.includes(inputValue)) {
+    if(!checkValue(input.value, linksArr)) {
         linksArr.unshift({url: input.value});
         LOCALSTORAGE.set("linksArr", linksArr);
       } else {
@@ -82,13 +80,24 @@ function addCard(e) {
 	form.reset();
 }
 
+function checkValue(value, arr) {
+	return arr.some(el => el.url === value);
+}
+
 function makeMarkUp (arr) {
     let markUp = arr.reduce((acc, link) => acc + template(link), "");
     cardList.insertAdjacentHTML("afterbegin", markUp);
 }
 
+function removeCard(e) {
 
+	if(e.target.classList.value === "button") {
+		e.target.parentNode.remove();
 
+		linksArr = linksArr.filter(el => el.url != e.target.previousElementSibling.innerText);
+		LOCALSTORAGE.set("linksArr", linksArr);
+}
+}
 
 form.addEventListener("submit", addCard);
-
+cardList.addEventListener("click", removeCard)
