@@ -4,12 +4,10 @@ const cardList = document.querySelector(".card-list");
 const input = document.querySelector("#input");
 const form = document.querySelector(".form");
 const button = document.querySelector(".button");
-const cardItem = document.querySelector(".card-item");
-const URL =
-	"https://api.linkpreview.net/?key=5c90e99e4c39368cdd7cf8954323ce3a4329051385e2c&q=";
+// const URL =
+// 	"https://api.linkpreview.net/?key=5c90e99e4c39368cdd7cf8954323ce3a4329051385e2c&q=";
 
 let linksArr = [];
-
 
 const LOCALSTORAGE = (w => {
 	if (!w) return;
@@ -55,28 +53,33 @@ const LOCALSTORAGE = (w => {
 })(window);
 
 (function preload() {
-    if (LOCALSTORAGE.get("linksArr") === undefined) return;
-    linksArr = LOCALSTORAGE.get("linksArr");
-    makeMarkUp(linksArr);
-    console.log(linksArr);
-  })();
-
+	if (LOCALSTORAGE.get("linksArr") === undefined) return;
+	linksArr = LOCALSTORAGE.get("linksArr");
+	makeMarkUp(linksArr);
+	console.log(linksArr);
+})();
 
 function addCard(e) {
-    e.preventDefault();
+	e.preventDefault();
 
-    if(!checkValue(input.value, linksArr)) {
-        linksArr.unshift({url: input.value});
-        LOCALSTORAGE.set("linksArr", linksArr);
-      } else {
-        alert("This link is in the list of bookmarks alredy");
-        return;
-      }
-        
-    cardList.innerHTML = '';
-    makeMarkUp(linksArr);
+	if (input.value === "") {
+		alert("Please, enter a link");
+		form.reset();
+		return;
+	}
 
-	console.log(linksArr);
+	if (!checkValue(input.value, linksArr)) {
+		linksArr.unshift({ url: input.value });
+		LOCALSTORAGE.set("linksArr", linksArr);
+	} else {
+		alert("This link is in the list of bookmarks alredy");
+		form.reset();
+		return;
+	}
+
+	cardList.innerHTML = "";
+	makeMarkUp(linksArr);
+
 	form.reset();
 }
 
@@ -84,20 +87,23 @@ function checkValue(value, arr) {
 	return arr.some(el => el.url === value);
 }
 
-function makeMarkUp (arr) {
-    let markUp = arr.reduce((acc, link) => acc + template(link), "");
-    cardList.insertAdjacentHTML("afterbegin", markUp);
+function makeMarkUp(arr) {
+	let markUp = arr.reduce((acc, link) => acc + template(link), "");
+	cardList.insertAdjacentHTML("afterbegin", markUp);
 }
 
 function removeCard(e) {
-
-	if(e.target.classList.value === "button") {
+	if (e.target.classList.value === "button") {
 		e.target.parentNode.remove();
 
-		linksArr = linksArr.filter(el => el.url != e.target.previousElementSibling.innerText);
+		linksArr = linksArr.filter(
+			el => el.url != e.target.previousElementSibling.innerText
+		);
 		LOCALSTORAGE.set("linksArr", linksArr);
-}
+		cardList.innerHTML = "";
+		makeMarkUp(linksArr);
+	}
 }
 
 form.addEventListener("submit", addCard);
-cardList.addEventListener("click", removeCard)
+cardList.addEventListener("click", removeCard);
