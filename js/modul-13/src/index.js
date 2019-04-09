@@ -27,12 +27,15 @@ import { LOCALSTORAGE } from './js/localstorage';
 import Model from './js/model';
 import View from './js/veiw';
 import Controller from './js/controller';
+import { EventEmitter } from "events";
 
 
 const model = new Model();
 const view = new View();
+const ee = new EventEmitter();
 
 new Controller(model, view);
+
 
 // const sourse = document.querySelector(".template").innerHTML.trim();
 // const template = Handlebars.compile(sourse);

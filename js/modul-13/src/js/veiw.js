@@ -1,7 +1,9 @@
 import * as Handlebars from './handlebars-v4.1.1';
+import { EventEmitter } from "events";
 
-export default class Veiw {
+export default class Veiw extends EventEmitter {
     constructor() {
+        super();
         this.cardList = document.querySelector(".card-list");
         this.sourse = document.querySelector(".template").innerHTML.trim();
         this.template = Handlebars.compile(this.sourse);
@@ -9,7 +11,16 @@ export default class Veiw {
         this.input = this.form.querySelector("#input");
 
         this.cardList.addEventListener("click", this.removeCard.bind(this));
-        // this.form.addEventListener("submit", addCard);
+        this.form.addEventListener("submit", this.handleAdd.bind(this));
+    }
+
+    handleAdd(e) {
+        e.preventDefault();
+
+        const {value} = this.input;
+
+        if(value === '') return;
+        this.emit('add', value);
     }
 
     makeMarkUp(arr) {
