@@ -4,19 +4,23 @@ export default class Controller {
         this.view = view;
 
         this.view.on('add', this.addLink.bind(this));
+        this.view.on('remove', this.removeLink.bind(this));
+        this.view.on('preload', this.preloadLink.bind(this));
     }
 
     addLink(link) {
-        const arr = this.model.addCard(link);
+        const arr = this.model.addCard(link) ;
         this.view.makeMarkUp(arr);
-
-        console.log(this.model);
     }
 
     removeLink(e) {
         this.model.removeCard(e);
         this.view.removeCard(e);
-
-        console.log(this.model);
     }
+
+    preloadLink() {
+        const localStorageArr = this.model. loadLink();
+        this.view.loadLinks(localStorageArr);
+    }
+
 }

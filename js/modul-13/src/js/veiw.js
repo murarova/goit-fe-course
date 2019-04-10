@@ -10,23 +10,35 @@ export default class Veiw extends EventEmitter {
         this.form = document.querySelector(".form");
         this.input = this.form.querySelector("#input");
 
-        this.cardList.addEventListener("click", this.removeCard.bind(this));
+        this.cardList.addEventListener("click", this.handleRemove.bind(this));
         this.form.addEventListener("submit", this.handleAdd.bind(this));
+        document.addEventListener("DOMContentLoaded", this.onPreload.bind(this));
     }
 
     handleAdd(e) {
         e.preventDefault();
 
         const {value} = this.input;
-
         if(value === '') return;
+
         this.emit('add', value);
+    }
+
+    handleRemove(e) {
+        e.preventDefault();
+        if (e.target.classList.value === "button") {
+            this.emit('remove', e);
+        }
+    }
+
+    onPreload() {
+        this.emit('preload');
     }
 
     makeMarkUp(arr) {
 
         this.cardList.innerHTML = "";
-        
+
         let markUp = arr.reduce((acc, link) => acc + this.template(link), "");
 
         this.cardList.insertAdjacentHTML("afterbegin", markUp);
@@ -34,8 +46,10 @@ export default class Veiw extends EventEmitter {
     }
 
     removeCard(e) {
-	if (e.target.classList.value === "button") {
-		e.target.parentNode.remove();
-	}
-}
+        e.target.parentNode.remove();
+    }
+
+    loadLinks(arr) {
+        this.makeMarkUp(arr);
+    }
 }

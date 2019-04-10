@@ -1,23 +1,21 @@
-export default class Model {
+import { EventEmitter } from "events";
+import { LOCALSTORAGE } from './localstorage';
+
+
+export default class Model extends EventEmitter {
     constructor(linksArr = []) {
+        super();
         this.linksArr = linksArr;
     }
 
     addCard(text) {
-    
-        if (text === "") {
-            alert("Please, enter a link");
-            return;
-        }
-    
+   
         if (!this.checkValue(text, this.linksArr)) {
             this.linksArr.unshift({ url: text });
-            // LOCALSTORAGE.set("linksArr", this.linksArr);
+            LOCALSTORAGE.set("linksArr", this.linksArr);
         } else {
             alert("This link is in the list of bookmarks alredy");
-            return;
         }
-         // view.makeMarkUp(this.linksArr);
         return this.linksArr;
     }
 
@@ -26,13 +24,19 @@ export default class Model {
     }
 
     removeCard(e) {
-        if (e.target.classList.value === "button") {
             e.target.parentNode.remove();
     
             this.linksArr = this.linksArr.filter(
                 el => el.url != e.target.previousElementSibling.innerText
             );
-            // LOCALSTORAGE.set("linksArr", this.linksArr);
-        }
+            LOCALSTORAGE.set("linksArr", this.linksArr);
     }
+
+    loadLink() {
+        if (LOCALSTORAGE.get("linksArr") === undefined) return;
+        this.linksArr = LOCALSTORAGE.get("linksArr");
+
+        return this.linksArr
+    }
+
 }
